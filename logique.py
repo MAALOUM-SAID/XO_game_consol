@@ -1,162 +1,52 @@
+class Game:
+    def __init__(self) -> None:
+        self.a="1"
+        self.b="2"
+        self.c="3"
+        self.d="4"
+        self.e="5"
+        self.f="6"
+        self.i="7"
+        self.g="8"
+        self.k="9"
+    def __str__(self) -> str:
+        return f"""
++-------+-------+-------+
+|   {self.a}   |   {self.b}   |   {self.c}   |
+|_______|_______|_______|
+|   {self.d}   |   {self.e}   |   {self.f}   |
+|_______|_______|_______|
+|       |       |       |
+|   {self.i}   |   {self.g}   |   {self.k}   |
++-------+-------+-------+
+"""
+    def play(self,place,symbol):
+        if place=="1":
+            self.a=symbol
+        elif place=="2":
+            self.b=symbol
+        elif place=="3":
+            self.c=symbol
+        elif place=="4":
+            self.d=symbol
+        elif place=="5":
+            self.e=symbol
+        elif place=="6":
+            self.f=symbol
+        elif place=="7":
+            self.i=symbol
+        elif place=="8":
+            self.g=symbol
+        elif place=="9":
+            self.k=symbol
+class Player:
+    counter=0
+    def __init__(self,symbol:str,game:Game) -> None:
+        self.symbol=symbol
+        self.game=game
+        Player.counter+=1
+    def player_play(self,place):
+        self.game.play(place,self.symbol)
 
-import random
-def tbl():
-    return f"""
-        +-------+-------+-------+
-        |   {a}   |   {b}   |   {c}   |
-        |_______|_______|_______|
-        |   {d}   |   {e}   |   {f}   |
-        |_______|_______|_______|
-        |       |       |       |
-        |   {i}   |   {g}   |   {k}   |
-        +-------+-------+-------+
-    """
 
-def place_cases(smbl,place):
-    global a,b,c,d,e,f,i,g,k
-    if place=="1":
-        try :
-            a=smbl
-            return tbl()
-        except Exception as NameError:
-            b="2"
-            c="3"
-            d="4"
-            e="5"
-            f="6"
-            i="7"
-            g="8"
-            k="9"
-            return tbl()
-    elif place=="2":
-        try :
-            b=smbl
-            return tbl()
-        except Exception as NameError:
-            a="1"
-            c="3"
-            d="4"
-            e="5"
-            f="6"
-            i="7"
-            g="8"
-            k="9"
-            return tbl()
-    elif place=="3":
-        try:
-            c=smbl
-            return tbl()
-        except Exception as NameError:
-            a="1"
-            b="2"
-            d="4"
-            e="5"
-            f="6"
-            i="7"
-            g="8"
-            k="9"
-            return tbl()
-    elif place=="4":
-        try:
-            d=smbl
-            return tbl()
-        except Exception as NameError:
-            a="1"
-            b="2"
-            c="3"
-            e="5"
-            f="6"
-            i="7"
-            g="8"
-            k="9"
-            return tbl()
-    elif place=="5":
-        try:
-            e=smbl
-            return tbl()
-        except Exception as NameError:
-            a="1"
-            b="2"
-            c="3"
-            d="4"
-            f="6"
-            i="7"
-            g="8"
-            k="9"
-            return tbl()
-    elif place=="6":
-        try:
-            f=smbl
-            return tbl()
-        except Exception as NameError:
-            a="1"
-            b="2"
-            c="3"
-            d="4"
-            e="5"
-            i="7"
-            g="8"
-            k="9"
-            return tbl()
-    elif place=="7":
-        try:
-            i=smbl
-            return tbl()
-        except Exception as NameError:
-            a="1"
-            b="2"
-            c="3"
-            d="4"
-            e="5"
-            f="6"
-            g="8"
-            k="9"
-            return tbl()
-    elif place=="8":
-        try:
-            g=smbl
-            return tbl()
-        except Exception as NameError:
-            a="1"
-            b="2"
-            c="3"
-            d="4"
-            e="5"
-            f="6"
-            i="7"
-            k="9"
-            return tbl()
-    elif place=="9":
-        try:
-            k=smbl
-            return tbl()
-        except Exception as NameError:
-            a="1"
-            b="2"
-            c="3"
-            d="4"
-            e="5"
-            f="6"
-            i="7"
-            g="8"
-            return tbl()
-    
-def player(smbl,length):
-    place=place=input("\033[1;31m"+"Player 1  : ")
-    if length==1:
-        print(place_cases(smbl,place))
-        return place
-    place_cases(smbl,place)
-    return place
-def auto_play(smbl,list):
-    place=random.choice(list)
-    print(place_cases(smbl,place))
-    return place
-def player1(smbl):
-    place=place=input("\033[1;31m"+"Player 1  : ")
-    print(place_cases(smbl,place))
-    return place
-def multi_players(smbl):
-    place=input("\033[1;35m"+"player 2 :")
-    print(place_cases(smbl,place))
-    return place
+
